@@ -1,0 +1,8 @@
+fixtures:
+  forge_modules:
+    stdlib:
+      repo: "puppetlabs/stdlib"
+    apt:
+      repo: "puppetlabs/apt"
+  symlinks:
+    nginx: "#{source_dir}"
