@@ -20,6 +20,7 @@ define nginx::resource::vhost (
     mode    => '0644',
     source  => $source,
     require => Class["${module_name}::config"],
+    notify  => Class["${module_name}::service"],
   }
 
   $ensure_sites_enabled = $enabled ? {
