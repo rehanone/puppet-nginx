@@ -1,6 +1,13 @@
 require 'spec_helper'
 describe 'nginx' do
 
+  let(:facts) { {
+    :os => { 'name' => 'Ubuntu' }
+  } }
+  let(:facts) { {
+    :os => { 'family' => 'Debian' }
+  } }
+
   it { should compile }
 
   context 'with default values for all parameters' do

@@ -4,6 +4,7 @@ class nginx (
   $repo_branch          = $nginx::params::repo_branch,
   $package_ensure       = $nginx::params::package_ensure,
   $package_name         = $nginx::params::package_name,
+  $package_extras       = $nginx::params::package_extras,
   $service_enable       = $nginx::params::service_enable,
   $service_ensure       = $nginx::params::service_ensure,
   $service_manage       = $nginx::params::service_manage,
@@ -18,6 +19,7 @@ class nginx (
   validate_re($repo_branch, [ '^stable', '^mainline' ], 'repo_branch parameter must be stable or mainline')
   validate_string($package_ensure)
   validate_string($package_name)
+  validate_array($package_extras)
   validate_bool($service_enable)
   validate_string($service_ensure)
   validate_bool($service_manage)

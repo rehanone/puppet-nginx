@@ -4,5 +4,12 @@ describe 'nginx::install', :type => :class do
       'class { "nginx": }'
   end
 
+  let(:facts) { {
+    :os => { 'name' => 'Ubuntu' }
+  } }
+  let(:facts) { {
+    :os => { 'family' => 'Debian' }
+  } }
+
   it { is_expected.to contain_package('nginx') }
 end

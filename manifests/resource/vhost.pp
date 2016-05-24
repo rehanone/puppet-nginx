@@ -8,6 +8,19 @@ define nginx::resource::vhost (
   $sites_available  = "${install_location}/sites-available"
   $sites_enabled    = "${install_location}/sites-enabled"
 
+  $ensure_certs_dir = $ensure ? {
+    'present' => directory,
+    default   => $ensure,
+  }
+
+  file { "${install_location}/certs/${name}":
+    ensure  => $ensure_certs_dir,
+    mode    => '0600',
+    owner   => 'root',
+    group   => 'root',
+    require => Class["${module_name}::config"],
+  }
+
   $ensure_sites_available  = $ensure ? {
     'present' => file,
     default   => $ensure,

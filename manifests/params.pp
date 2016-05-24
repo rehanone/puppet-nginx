@@ -12,16 +12,12 @@ class nginx::params {
   }
   $package_ensure   = 'latest'
   $package_name     = 'nginx'
+  $package_extras   = []
   $service_enable   = true
   $service_ensure   = 'running'
   $service_manage   = true
   $service_name     = 'nginx'
-  $install_location = $::facts['osfamily'] ? {
-    'Debian'    => '/etc/nginx',
-    'Ubuntu'    => '/etc/nginx',
-    'Archlinux' => '/etc/nginx',
-    default     => '/etc/nginx',
-  }
+  $install_location = '/etc/nginx'
   $service_ports    = {
     '80'  => 'tcp',
     '443' => 'tcp',
