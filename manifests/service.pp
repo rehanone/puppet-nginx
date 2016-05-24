@@ -9,12 +9,10 @@ class nginx::service inherits nginx {
 
   if $nginx::service_manage {
     service { $nginx::service_name:
-      ensure     => $nginx::service_ensure,
-      enable     => $nginx::service_enable,
-      name       => $nginx::service_name,
-      hasstatus  => true,
-      hasrestart => true,
-      subscribe  => Class["${module_name}::config"],
+      ensure    => $nginx::service_ensure,
+      enable    => $nginx::service_enable,
+      name      => $nginx::service_name,
+      subscribe => Class["${module_name}::config"],
     }
   }
 }

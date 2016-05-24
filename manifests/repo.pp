@@ -3,7 +3,7 @@ class nginx::repo () inherits nginx {
   assert_private("Use of private class ${name} by ${caller_module_name}")
 
   if $nginx::repo_manage {
-    case $::facts[os][name] {
+    case $::facts[operatingsystem] {
       'Ubuntu': {
         contain apt
         case $nginx::repo_branch {

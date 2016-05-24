@@ -13,6 +13,8 @@ class nginx (
   $install_location     = $nginx::params::install_location,
   $firewall_manage      = $nginx::params::firewall_manage,
   $enabled_sites_manage = $nginx::params::enabled_sites_manage,
+  $configs              = hiera_hash('nginx::configs', {}),
+  $vhosts               = hiera_hash('nginx::vhosts', {}),
 ) inherits nginx::params {
 
   validate_bool($repo_manage)
@@ -28,6 +30,8 @@ class nginx (
   validate_string($install_location)
   validate_bool($firewall_manage)
   validate_bool($enabled_sites_manage)
+  validate_hash($configs)
+  validate_hash($vhosts)
 
   anchor { "${module_name}::begin": } ->
   class {"${module_name}::repo":} ->

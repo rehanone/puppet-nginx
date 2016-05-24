@@ -1,5 +1,5 @@
 require 'spec_helper'
-describe 'nginx::install', :type => :class do
+describe 'nginx::service', :type => :class do
   let :pre_condition do
       'class { "nginx": }'
   end
@@ -8,5 +8,5 @@ describe 'nginx::install', :type => :class do
     :operatingsystem => 'Archlinux'
   } }
 
-  it { is_expected.to contain_package('nginx') }
+  it { is_expected.to contain_service('nginx') }
 end
