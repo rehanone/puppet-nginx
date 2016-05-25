@@ -7,14 +7,13 @@ describe 'nginx' do
     }
   end
 
-  describe "with defaults" do
-    it { is_expected.to compile.with_all_deps }
-    it { is_expected.to contain_class('nginx') }
-    it { is_expected.to contain_anchor('nginx::begin') }
-    it { is_expected.to contain_nginx__repo }
-    it { is_expected.to contain_nginx__config }
-    it { is_expected.to contain_nginx__service }
-    it { is_expected.to contain_nginx__firewall }
-    it { is_expected.to contain_anchor('nginx::end') }
+  it { is_expected.to compile.with_all_deps }
+
+  context 'with default values for all parameters' do
+    it { should contain_class('nginx::repo') }
+    it { should contain_class('nginx::install') }
+    it { should contain_class('nginx::config') }
+    it { should contain_class('nginx::service') }
+    it { should contain_class('nginx::firewall') }
   end
 end
