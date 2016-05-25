@@ -52,20 +52,20 @@ include nginx
 Or the PKI Server using the parameters:
 ```puppet
 class{ 'nginx':
-nginx::repo_manage          => true,
-nginx::repo_branch          => 'stable',
-nginx::package_ensure       => 'latest',
-nginx::package_name         => 'nginx',
-nginx::package_extras       => [],
-nginx::service_manage       => true,
-nginx::service_enable       => true,
-nginx::service_ensure       => 'running',
-nginx::service_name         => 'nginx',
-nginx::install_location     => '/etc/nginx',
-nginx::firewall_manage      => false,
-nginx::enabled_sites_manage => false,
-nginx::configs              => hiera_hash('nginx::configs', {}),
-nginx::vhosts               => hiera_hash('nginx::vhosts', {}),
+  repo_manage          => true,
+  repo_branch          => 'stable',
+  package_ensure       => 'latest',
+  package_name         => 'nginx',
+  package_extras       => [],
+  service_manage       => true,
+  service_enable       => true,
+  service_ensure       => 'running',
+  service_name         => 'nginx',
+  install_location     => '/etc/nginx',
+  firewall_manage      => false,
+  enabled_sites_manage => false,
+  configs              => hiera_hash('nginx::configs', {}),
+  vhosts               => hiera_hash('nginx::vhosts', {}),
 }
 ```
 
@@ -159,5 +159,5 @@ nginx::resource::vhost { 'example.com':
 
 ## Development
 
-You can submit pull requests and create issues through the official page of this module: https://github.com/rehan/puppet-nginx.
+You can submit pull requests and create issues through the official page of this module: https://github.com/rehanone/puppet-nginx.
 Please do report any bug and suggest new features/improvements.
