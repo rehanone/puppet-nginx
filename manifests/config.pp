@@ -15,6 +15,6 @@ class nginx::config () inherits nginx {
     group  => 'root',
   }
 
-  create_resources('nginx::resourse::config', $nginx::configs)
-  create_resources('nginx::resourse::vhost', $nginx::vhosts)
+  create_resources('nginx::resource::config', $nginx::configs)
+  create_resources('nginx::resource::vhost', $nginx::vhosts)
 }

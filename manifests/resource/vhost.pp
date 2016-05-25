@@ -18,7 +18,7 @@ define nginx::resource::vhost (
     mode    => '0600',
     owner   => 'root',
     group   => 'root',
-    require => Class["${module_name}::config"],
+    require => File["${nginx::install_location}/certs"],
   }
 
   $ensure_sites_available  = $ensure ? {
