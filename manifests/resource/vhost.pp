@@ -1,8 +1,23 @@
 define nginx::resource::vhost (
-  String                      $source,
+  String                      $source  = '',
+  String                      $content = '',
   Enum[ 'present', 'absent' ] $ensure  = present,
   Boolean                     $enabled = true,
 ) {
+
+  if (empty($source)) and (empty($content)) {
+    fail('Please provide source or content')
+  }
+
+  $file_source = $source ? {
+    ''      => undef,
+    default => $source,
+  }
+
+  $file_content = $content ? {
+    '' => undef,
+    default => $content,
+  }
 
   $install_location = $::nginx::install_location
   $sites_available  = "${install_location}/sites-available"
@@ -31,7 +46,8 @@ define nginx::resource::vhost (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    source  => $source,
+    source  => $file_source,
+    content => $file_content,
     require => File[$sites_enabled],
     notify  => Class["${module_name}::service"],
   }
