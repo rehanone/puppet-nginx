@@ -8,6 +8,9 @@ define nginx::resource::vhost (
   if (empty($source)) and (empty($content)) {
     fail('Please provide source or content')
   }
+  elsif (!empty($source)) and (!empty($content)) {
+    fail('Please provide source or content, the options are mutually exclusive')
+  }
 
   $file_source = $source ? {
     ''      => undef,

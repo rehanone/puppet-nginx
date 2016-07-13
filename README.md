@@ -154,8 +154,8 @@ nginx::resource::vhost { 'example.com':
 
 ##### Parameters
 
-* **source** a file in a puppet module.
-* **content** Content of the vhost file.
+* **source** a file in a puppet module. It is not possible to combine this option with content.
+* **content** Content of the vhost file. It is not possible to combine this option with source.
 * **enabled** Creates a link under `/etc/nginx/sites-enabled`.
 
 ## Dependencies
