@@ -144,9 +144,18 @@ nginx::resource::vhost { 'example.com':
 }
 ```
 
+or with a template:
+```puppet
+nginx::resource::vhost { 'example.com':
+  enabled => true
+  content => template('webproxy/example.erb'),
+}
+```
+
 ##### Parameters
 
-* **source** a file in a puppet module.
+* **source** a file in a puppet module. It is not possible to combine this option with content.
+* **content** Content of the vhost file. It is not possible to combine this option with source.
 * **enabled** Creates a link under `/etc/nginx/sites-enabled`.
 
 ## Dependencies
