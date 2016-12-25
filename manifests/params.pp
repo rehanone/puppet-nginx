@@ -6,9 +6,27 @@
 class nginx::params {
   $repo_manage      = true
   $repo_branch      = 'stable'
-  $repo_sources     = {
-    'stable'   => 'ppa:nginx/stable',
-    'mainline' => 'ppa:nginx/development',
+  $repo_sources     = $::facts[operatingsystem] ? {
+    'Ubuntu' => {
+      'stable'   => 'ppa:nginx/stable',
+      'mainline' => 'ppa:nginx/development',
+    },
+    'RedHat' => {
+      'stable'   => 'http://nginx.org/packages/rhel',
+      'mainline' => 'http://nginx.org/packages/mainline/rhel',
+    },
+    'CentOS' => {
+      'stable'   => 'http://nginx.org/packages/centos',
+      'mainline' => 'http://nginx.org/packages/mainline/centos',
+    },
+    'Scientific' => {
+      'stable'   => 'http://nginx.org/packages/centos',
+      'mainline' => 'http://nginx.org/packages/mainline/centos',
+    },
+    default => {
+      'stable'   => '',
+      'mainline' => '',
+    },
   }
   $package_ensure   = 'latest'
   $package_name     = 'nginx'

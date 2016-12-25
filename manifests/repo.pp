@@ -3,9 +3,10 @@ class nginx::repo () inherits nginx {
   assert_private("Use of private class ${name} by ${caller_module_name}")
 
   if $nginx::repo_manage {
+
     case $::facts[operatingsystem] {
       'Ubuntu': {
-        contain apt
+        require apt
         case $nginx::repo_branch {
           'mainline': {
             apt::ppa { $nginx::repo_sources[mainline]:
@@ -23,6 +24,19 @@ class nginx::repo () inherits nginx {
               ensure => present,
             }
           }
+        }
+      }
+      'RedHat', 'CentOS', 'Scientific': {
+        $channelurl = $nginx::repo_sources[$nginx::repo_branch]
+        $releasever = $::facts[operatingsystemmajrelease]
+        $basearch = $::facts[os][architecture]
+
+        $baseurl = "${channelurl}/${releasever}/${basearch}/"
+
+        file { '/etc/yum.repos.d/nginx.repo':
+          ensure  => file,
+          path    => '/etc/yum.repos.d/nginx.repo',
+          content => template("${module_name}/nginx.repo.erb"),
         }
       }
       'Archlinux': {}
