@@ -1,7 +1,8 @@
 
 define nginx::resource::config (
-  String                      $source,
-  Enum[ 'present', 'absent' ] $ensure  = present,
+  String  $source,
+  Enum[ present, absent ]
+          $ensure  = present,
   ) {
 
   $install_location = $::nginx::install_location
