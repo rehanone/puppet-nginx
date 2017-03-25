@@ -48,6 +48,9 @@
         "15.10",
         "16.04"
       ]
+    },
+    {
+      "operatingsystem": "ArchLinux"
     }
   ],
   "requirements": [
