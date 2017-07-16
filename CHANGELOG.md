@@ -1,3 +1,17 @@
+## 0.4.0 (July 16, 2017)
+
+Improvements:
+
+  - Added `repo_ensure` parameter.
+  - Added `package_manage` parameter.
+  - Replace deprecated `hiera_hash` to `lookup`.
+  - Update minimum puppet version required is set to `4.7.0`.
+  - Updated `puppetlabs-apt` module dependency versions.
+
+Bugfixes:
+
+  - Fix the style issues in chaining arrows.
+
 ## 0.3.0 (December 25, 2016)
 
 Features:
