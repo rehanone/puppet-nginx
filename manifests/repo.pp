@@ -10,7 +10,7 @@ class nginx::repo () inherits nginx {
         case $nginx::repo_branch {
           'mainline': {
             apt::ppa { $nginx::repo_sources[mainline]:
-              ensure => present,
+              ensure => $nginx::repo_ensure,
             }
             apt::ppa { $nginx::repo_sources[stable]:
               ensure => absent,
@@ -21,7 +21,7 @@ class nginx::repo () inherits nginx {
               ensure => absent,
             }
             apt::ppa { $nginx::repo_sources[stable]:
-              ensure => present,
+              ensure => $nginx::repo_ensure,
             }
           }
         }

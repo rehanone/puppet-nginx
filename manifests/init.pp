@@ -1,8 +1,10 @@
 
 class nginx (
   Boolean $repo_manage          = $nginx::params::repo_manage,
+  String  $repo_ensure          = $nginx::params::repo_ensure,
   Enum[stable, mainline]
           $repo_branch          = $nginx::params::repo_branch,
+  Boolean $package_manage       = $nginx::params::package_manage,
   String  $package_ensure       = $nginx::params::package_ensure,
   String  $package_name         = $nginx::params::package_name,
   Array[String]
@@ -15,15 +17,15 @@ class nginx (
   String  $install_location     = $nginx::params::install_location,
   Boolean $firewall_manage      = $nginx::params::firewall_manage,
   Boolean $enabled_sites_manage = $nginx::params::enabled_sites_manage,
-  Hash    $configs              = hiera_hash('nginx::configs', {}),
-  Hash    $vhosts               = hiera_hash('nginx::vhosts', {}),
+  Hash    $configs              = lookup('nginx::configs', Hash, 'hash', {}),
+  Hash    $vhosts               = lookup('nginx::vhosts', Hash, 'hash', {}),
 ) inherits nginx::params {
 
-  anchor { "${module_name}::begin": } ->
-    class { "${module_name}::repo": } ->
-    class { "${module_name}::install": } ->
-    class { "${module_name}::config": } ~>
-    class { "${module_name}::service": } ->
-    class { "${module_name}::firewall": } ->
-  anchor { "${module_name}::end": }
+  anchor { "${module_name}::begin": }
+  -> class { "${module_name}::repo": }
+  -> class { "${module_name}::install": }
+  -> class { "${module_name}::config": }
+  ~> class { "${module_name}::service": }
+  -> class { "${module_name}::firewall": }
+  -> anchor { "${module_name}::end": }
 }
