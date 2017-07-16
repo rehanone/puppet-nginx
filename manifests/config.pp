@@ -7,8 +7,7 @@ class nginx::config () inherits nginx {
     purge   => $nginx::enabled_sites_manage,
     recurse => true,
   }
-  ->
-  file { "${nginx::install_location}/certs":
+  -> file { "${nginx::install_location}/certs":
     ensure => directory,
     mode   => '0600',
     owner  => 'root',

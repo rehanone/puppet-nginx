@@ -5,6 +5,7 @@
 #
 class nginx::params {
   $repo_manage      = true
+  $repo_ensure      = present
   $repo_branch      = 'stable'
   $repo_sources     = $::facts[operatingsystem] ? {
     'Ubuntu' => {
@@ -28,6 +29,7 @@ class nginx::params {
       'mainline' => '',
     },
   }
+  $package_manage   = true
   $package_ensure   = 'latest'
   $package_name     = 'nginx'
   $package_extras   = []
