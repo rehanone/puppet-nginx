@@ -1,3 +1,12 @@
+## 1.0.0 (February 17, 2018)
+
+Improvements:
+
+  - Added unit tests to cover all supported OS entries.
+  - Added Puppet 5 support.
+  - Updated templates from erb to epp.
+  - Updated OS support matrix.
+
 ## 0.4.0 (July 16, 2017)
 
 Improvements:
