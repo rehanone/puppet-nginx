@@ -11,8 +11,12 @@ unless ENV['RS_PROVISION'] == 'no' or ENV['BEAKER_provision'] == 'no'
     environmentpath = host.puppet['environmentpath']
     environmentpath = environmentpath.split(':').first if environmentpath
 
-    on host, puppet('module install puppetlabs-stdlib --version 4.16.0')
-    on host, puppet('module install puppetlabs-apt --version 2.3.0')
+    apply_manifest_on(host, 'package { "python-software-properties": }')
+    apply_manifest_on(host, 'package { "software-properties-common": }')
+
+    on host, puppet('module install puppetlabs-stdlib --version 4.24.0')
+    on host, puppet('module install puppetlabs-apt --version 4.5.1')
+
   end
 end
 
@@ -25,12 +29,8 @@ RSpec.configure do |c|
 
   # Configure all nodes in nodeset
   c.before :suite do
-    # Install module and dependencies
     hosts.each do |host|
-      apply_manifest_on(host, 'package { "python-software-properties": }')
-      apply_manifest_on(host, 'package { "software-properties-common": }')
       copy_module_to(host, :source => proj_root, :module_name => 'nginx')
-      shell("/bin/touch #{default['puppetpath']}/hiera.yaml")
     end
   end
 end

@@ -1,0 +1,9 @@
+<%- | String  $baseurl
+| -%>
+# HEADER: This file is managed by Puppet; changes may be overwritten.
+
+[nginx]
+name=nginx repo
+baseurl=<%= $baseurl %>
+gpgcheck=0
+enabled=1

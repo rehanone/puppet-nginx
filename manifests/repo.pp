@@ -31,12 +31,14 @@ class nginx::repo () inherits nginx {
         $releasever = $::facts[operatingsystemmajrelease]
         $basearch = $::facts[os][architecture]
 
-        $baseurl = "${channelurl}/${releasever}/${basearch}/"
-
         file { '/etc/yum.repos.d/nginx.repo':
           ensure  => file,
           path    => '/etc/yum.repos.d/nginx.repo',
-          content => template("${module_name}/nginx.repo.erb"),
+          content => epp("${module_name}/nginx.repo.epp",
+            {
+              baseurl => "${channelurl}/${releasever}/${basearch}/",
+            }
+          ),
         }
       }
       'Archlinux': {}
