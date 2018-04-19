@@ -4,7 +4,7 @@ class nginx::repo () inherits nginx {
 
   if $nginx::repo_manage {
 
-    case $::facts[operatingsystem] {
+    case $::facts[os][name] {
       'Ubuntu': {
         require apt
         case $nginx::repo_branch {
@@ -28,7 +28,7 @@ class nginx::repo () inherits nginx {
       }
       'RedHat', 'CentOS', 'Scientific': {
         $channelurl = $nginx::repo_sources[$nginx::repo_branch]
-        $releasever = $::facts[operatingsystemmajrelease]
+        $releasever = $::facts[os][release][major]
         $basearch = $::facts[os][architecture]
 
         file { '/etc/yum.repos.d/nginx.repo':

@@ -7,7 +7,7 @@ class nginx::params {
   $repo_manage      = true
   $repo_ensure      = present
   $repo_branch      = 'stable'
-  $repo_sources     = $::facts[operatingsystem] ? {
+  $repo_sources     = $::facts[os][name] ? {
     'Ubuntu' => {
       'stable'   => 'ppa:nginx/stable',
       'mainline' => 'ppa:nginx/development',
