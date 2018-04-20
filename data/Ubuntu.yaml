@@ -1,0 +1,4 @@
+---
+nginx::repo_sources:
+  stable: 'ppa:nginx/stable'
+  mainline: 'ppa:nginx/development'

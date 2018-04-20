@@ -1,0 +1,21 @@
+---
+nginx::repo_manage: true
+nginx::repo_ensure: present
+nginx::repo_branch: 'stable'
+nginx::package_manage: true
+nginx::package_ensure: 'latest'
+nginx::package_name: 'nginx'
+nginx::package_extras: []
+nginx::service_enable: true
+nginx::service_ensure: 'running'
+nginx::service_manage: true
+nginx::service_name: 'nginx'
+nginx::install_location: '/etc/nginx'
+nginx::service_ports:
+  '80': 'tcp'
+  '443': 'tcp'
+nginx::firewall_manage: false
+nginx::enabled_sites_manage: false
+nginx::repo_sources:
+  stable: ''
+  mainline: ''

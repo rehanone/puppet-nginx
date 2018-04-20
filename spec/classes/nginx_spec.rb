@@ -11,6 +11,34 @@ describe 'nginx' do
         is_expected.to compile.with_all_deps
       }
 
+      describe 'nginx::repo' do
+        let(:params) do
+          {
+            repo_manage: true,
+            repo_branch: 'stable',
+          }
+        end
+
+        case facts[:operatingsystem]
+        when 'Ubuntu'
+          it {
+            is_expected.to contain_apt__ppa('ppa:nginx/stable').with(
+              ensure: 'present',
+            )
+          }
+        end
+
+        case facts[:operatingsystem]
+        when 'RedHat'
+          it {
+            is_expected.to contain_file('/etc/yum.repos.d/nginx.repo').with(
+              ensure: 'file',
+              path: '/etc/yum.repos.d/nginx.repo',
+            )
+          }
+        end
+      end
+
       describe 'nginx::install' do
         let(:params) do
           {
