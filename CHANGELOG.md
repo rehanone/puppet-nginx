@@ -1,3 +1,13 @@
+## 2.0.0 (April 20, 2018)
+
+Features:
+  - Added `task` for managing nginx service.
+
+Improvements:
+
+  - Updated module to `pdk` compliant.
+  - Updated module data to `hiera 5`.
+
 ## 1.0.0 (February 17, 2018)
 
 Improvements:
