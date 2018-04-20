@@ -1,0 +1,14 @@
+{
+  "description": "Allows you to perform nginx service functions",
+  "input_method": "stdin",
+  "parameters": {
+    "action": {
+      "description": "Action to perform ",
+      "type": "Enum[start, stop, restart, status]"
+    },
+    "service_name": {
+      "description": "The name of the nginx service ",
+      "type": "Optional[String[1]]"
+    }
+  }
+}
