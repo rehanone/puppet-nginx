@@ -24,7 +24,7 @@ that can be used to provide a complete file.
 Where possible, this module can be used to ensure the nginx installation is up to date with latest upstream release 
 branches of nginx. Currently, this feature is supported for the following OSes:
 
-  - Ubuntu (using [ppa:git-core/ppa](https://launchpad.net/~git-core/+archive/ubuntu/ppa "ppa:git-core/ppa") )
+  - Ubuntu (stable: [ppa:nginx/stable](https://launchpad.net/~nginx/+archive/ubuntu/stable "ppa:nginx/stable"), mainline: [ppa:nginx/development](https://launchpad.net/~nginx/+archive/ubuntu/development "ppa:nginx/development") )
 
 ## Setup
 In order to install `rehan-nginx`, run the following command:
@@ -46,7 +46,7 @@ This module is designed to be as clean and compliant with latest puppet code gui
 
 A basic install with the defaults would be:
 ```puppet
-include nginx
+contain nginx
 ```
 
 Or the PKI Server using the parameters:
@@ -72,7 +72,7 @@ class{ 'nginx':
 ##### Parameters
 
 * **repo_manage**: Manage the upstream repository on supported OSes. The default value is `true`.
-* **repo_branch**: The upstream repo branch can be `stable` or `mainline`. The deafult value is `stable`.
+* **repo_branch**: The upstream repo branch can be `stable` or `mainline`. The default value is `stable`.
 * **package_ensure**: Ensure the nginx package is installed. The default value is `latest`.
 * **package_name**: Nginx package name. The default is `nginx`.
 * **package_extras**: Any extra packages required along with nginx. The default is an empty array.

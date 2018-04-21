@@ -1,3 +1,9 @@
+## 2.0.1 (April 21, 2018)
+
+Bugfixes:
+
+  - Fix minor documentation errors.
+
 ## 2.0.0 (April 20, 2018)
 
 Features:
@@ -5,7 +11,7 @@ Features:
 
 Improvements:
 
-  - Updated module to `pdk` compliant.
+  - Updated module to be `pdk` compliant.
   - Updated module data to `hiera 5`.
 
 ## 1.0.0 (February 17, 2018)
@@ -51,6 +57,4 @@ Features:
 Features:
 
   - Initial release
-
-Bugfixes:
 
