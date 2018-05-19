@@ -1,6 +1,6 @@
 # rehan-nginx
 
-[![Build Status](https://travis-ci.org/rehanone/puppet-nginx.svg?branch=master)](https://travis-ci.org/rehanone/puppet-nginx)
+[![Puppet Forge](http://img.shields.io/puppetforge/v/rehan/nginx.svg)](https://forge.puppetlabs.com/rehan/nginx) [![Build Status](https://travis-ci.org/rehanone/puppet-nginx.svg?branch=master)](https://travis-ci.org/rehanone/puppet-nginx)
 
 #### Table of Contents
 1. [Overview](#overview)
@@ -139,7 +139,7 @@ This resource allows creation of a virtual host file under `/etc/nginx/sites-ava
 Usage:
 ```puppet
 nginx::resource::vhost { 'example.com':
-  enabled => true
+  enabled => true,
   source  => 'puppet:///modules/webproxy/example.com',
 }
 ```
@@ -147,7 +147,7 @@ nginx::resource::vhost { 'example.com':
 or with a template:
 ```puppet
 nginx::resource::vhost { 'example.com':
-  enabled => true
+  enabled => true,
   content => template('webproxy/example.erb'),
 }
 ```
