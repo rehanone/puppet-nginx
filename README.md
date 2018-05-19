@@ -29,14 +29,14 @@ branches of nginx. Currently, this feature is supported for the following OSes:
 ## Setup
 In order to install `rehan-nginx`, run the following command:
 ```bash
-$ sudo puppet module install rehan-nginx
+$ puppet module install rehan-nginx
 ```
 The module does expect all the data to be provided through 'Hiera'. See [Usage](#usage) for examples on how to configure it.
 
 #### Requirements
 This module is designed to be as clean and compliant with latest puppet code guidelines. It works with:
 
-  - `puppet >=4.0.0`
+  - `puppet >=4.10.0`
 
 ## Usage
 
@@ -92,7 +92,6 @@ All of this data can be provided through `Hiera`.
 
 **YAML**
 ```yaml
----
 nginx::repo_manage: true
 nginx::repo_branch: 'stable'
 nginx::package_ensure: 'latest'
@@ -168,5 +167,5 @@ nginx::resource::vhost { 'example.com':
 
 ## Development
 
-You can submit pull requests and create issues through the official page of this module: https://github.com/rehanone/puppet-nginx.
+You can submit pull requests and create issues through the official page of this module on [GitHub](https://github.com/rehanone/puppet-nginx).
 Please do report any bug and suggest new features/improvements.
