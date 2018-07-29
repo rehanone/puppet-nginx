@@ -20,7 +20,7 @@ hosts.each do |host|
   apply_manifest_on(host, 'package { "software-properties-common": }')
 end
 
-UNSUPPORTED_PLATFORMS = %w[RedHat Suse windows AIX Solaris].freeze
+UNSUPPORTED_PLATFORMS = ['RedHat', 'Suse', 'windows', 'AIX', 'Solaris'].freeze
 
 DEFAULT_PASSWORD = if default[:hypervisor] == 'vagrant'
                      'vagrant'
