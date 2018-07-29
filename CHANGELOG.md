@@ -1,3 +1,11 @@
+## 2.0.3 (May 29, 2018)
+
+Improvements:
+
+- Updated module dependencies.
+- Added tests for Ubuntu 18.04 release.
+- Updated `pdk` templates.
+
 ## 2.0.2 (May 7, 2018)
 
 Improvements:
