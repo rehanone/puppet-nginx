@@ -1,3 +1,11 @@
+## 3.0.0 (April 29, 2019)
+
+Improvements:
+
+- Raise the version bound for puppetlabs-apt dependency.
+- Raise the minimum puppet version to 5.5.10.
+- Updated `pdk` templates.
+
 ## 2.1.1 (January 3, 2019)
 
 Improvements:
