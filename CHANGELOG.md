@@ -1,3 +1,9 @@
+## 3.0.2 (June 15, 2019)
+
+Improvements:
+
+- Updated os support matrix.
+
 ## 3.0.1 (April 29, 2019)
 
 Improvements:
