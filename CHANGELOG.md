@@ -1,3 +1,11 @@
+## 3.3.0 (May 6, 2020)
+
+Improvements:
+
+- Removed unused test files.
+- Updated `pdk` templates.
+- Apply firewall rules if `ferm` is defined as firewall manager. It uses [ferm](https://forge.puppet.com/puppet/ferm) module for managing `ferm`.
+
 ## 3.2.0 (February 13, 2020)
 
 Improvements:
