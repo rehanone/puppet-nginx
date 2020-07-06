@@ -12,8 +12,10 @@ nginx::service_manage: true
 nginx::service_name: 'nginx'
 nginx::install_location: '/etc/nginx'
 nginx::service_ports:
-  '80': 'tcp'
-  '443': 'tcp'
+  - port: 80
+    protocol: tcp
+  - port: 443
+    protocol: tcp
 nginx::firewall_manage: false
 nginx::enabled_sites_manage: false
 nginx::repo_sources:

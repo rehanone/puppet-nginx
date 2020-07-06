@@ -20,7 +20,12 @@ class nginx (
   String  $service_ensure,
   Boolean $service_manage,
   String  $service_name,
-  Hash    $service_ports,
+  Array[
+    Struct[{
+      port     => Stdlib::Port,
+      protocol => Enum[tcp, udp],
+    }]
+  ]       $service_ports,
   String  $install_location,
   Boolean $firewall_manage,
   Boolean $enabled_sites_manage,
