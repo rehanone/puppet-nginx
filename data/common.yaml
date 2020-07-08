@@ -2,6 +2,9 @@
 nginx::repo_manage: true
 nginx::repo_ensure: present
 nginx::repo_branch: 'stable'
+nginx::repo_sources:
+  stable: 'https://nothing.none/'
+  mainline: 'https://nothing.none/'
 nginx::package_manage: true
 nginx::package_ensure: 'latest'
 nginx::package_name: 'nginx'
@@ -18,6 +21,3 @@ nginx::service_ports:
     protocol: tcp
 nginx::firewall_manage: false
 nginx::enabled_sites_manage: false
-nginx::repo_sources:
-  stable: ''
-  mainline: ''

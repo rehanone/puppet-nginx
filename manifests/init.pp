@@ -1,4 +1,3 @@
-
 class nginx (
   Boolean $repo_manage,
   String  $repo_ensure,
@@ -6,8 +5,8 @@ class nginx (
           $repo_branch,
   Struct[
     {
-      stable => String,
-      mainline => String
+      stable   => Stdlib::HTTPSUrl,
+      mainline => Stdlib::HTTPSUrl,
     }
   ]
           $repo_sources,
@@ -29,8 +28,8 @@ class nginx (
   String  $install_location,
   Boolean $firewall_manage,
   Boolean $enabled_sites_manage,
-  Hash    $configs              = lookup('nginx::configs', Hash, 'hash', {}),
-  Hash    $vhosts               = lookup('nginx::vhosts', Hash, 'hash', {}),
+  Hash    $configs = lookup('nginx::configs', Hash, 'hash', {}),
+  Hash    $vhosts  = lookup('nginx::vhosts', Hash, 'hash', {}),
 ) {
 
   anchor { "${module_name}::begin": }

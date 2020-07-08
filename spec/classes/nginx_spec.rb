@@ -19,16 +19,16 @@ describe 'nginx' do
           }
         end
 
-        case facts[:operatingsystem]
-        when 'Ubuntu'
+        case facts[:os][:family]
+        when 'Debian'
           it {
-            is_expected.to contain_apt__ppa('ppa:nginx/stable').with(
+            is_expected.to contain_apt__source('https://nginx.org/packages/mainline/ubuntu/').with(
               ensure: 'present',
             )
           }
         end
 
-        case facts[:operatingsystem]
+        case facts[:os][:family]
         when 'RedHat'
           it {
             is_expected.to contain_file('/etc/yum.repos.d/nginx.repo').with(

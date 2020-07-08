@@ -1,0 +1,4 @@
+---
+nginx::repo_sources:
+  stable: 'https://nginx.org/packages/debian/'
+  mainline: 'https://nginx.org/packages/mainline/debian/'
