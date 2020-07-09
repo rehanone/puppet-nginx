@@ -1,3 +1,10 @@
+## 4.0.0 (July 8, 2020)
+
+Improvements:
+
+- Update nginx repository from unsupported ppa to Official Debian/Ubuntu packages.
+- Added support for Ubuntu 20.04.
+
 ## 3.4.0 (July 5, 2020)
 
 Improvements:
