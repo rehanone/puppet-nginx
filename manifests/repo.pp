@@ -15,6 +15,13 @@ class nginx::repo () inherits nginx {
         require apt
         case $nginx::repo_branch {
           'mainline': {
+            if $::facts[os][name] == 'Ubuntu' {
+              $ppa = 'ppa:nginx/development'
+              apt::ppa { $ppa:
+                ensure => absent,
+              }
+            }
+
             apt::source { "nginx-${nginx::repo_branch}":
               ensure       => $nginx::repo_ensure,
               location     => $nginx::repo_sources[mainline],
@@ -32,6 +39,13 @@ class nginx::repo () inherits nginx {
             }
           }
           default: {
+            if $::facts[os][name] == 'Ubuntu' {
+              $ppa = 'ppa:nginx/stable'
+              apt::ppa { $ppa:
+                ensure => absent,
+              }
+            }
+
             apt::source { "nginx-${nginx::repo_branch}":
               ensure       => $nginx::repo_ensure,
               location     => $nginx::repo_sources[mainline],
