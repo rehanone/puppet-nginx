@@ -1,3 +1,12 @@
+## 4.1.0 (May 8, 2021)
+
+**Improvements:**
+
+- Added acceptance tests for openSUSE Leap 15.
+- Updated os support matrix.
+- Updated `pdk` templates.
+- Added puppet 7 as supported version.
+
 ## 4.0.0 (July 8, 2020)
 
 **Improvements:**
