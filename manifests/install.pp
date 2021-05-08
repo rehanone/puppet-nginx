@@ -8,7 +8,6 @@ class nginx::install {
   if $nginx::package_manage {
     package { $nginx::package_name:
       ensure => $nginx::package_ensure,
-      alias  => 'nginx',
     }
   }
 }
