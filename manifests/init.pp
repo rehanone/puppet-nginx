@@ -1,29 +1,26 @@
 class nginx (
   Boolean $repo_manage,
   String  $repo_ensure,
-  Enum[stable, mainline]
-          $repo_branch,
-  Struct[
-    {
+  Enum[stable, mainline] $repo_branch,
+  Struct[{
       stable   => Stdlib::HTTPSUrl,
       mainline => Stdlib::HTTPSUrl,
-    }
-  ]
-          $repo_sources,
+  }] $repo_sources,
   Boolean $package_manage,
   String  $package_ensure,
   String  $package_name,
-  Array[String]
-          $package_extras,
+  Array[String] $package_extras,
   Boolean $service_enable,
   String  $service_ensure,
   Boolean $service_manage,
   String  $service_name,
   Array[
-    Struct[{
-      port     => Stdlib::Port,
-      protocol => Enum[tcp, udp],
-    }]
+    Struct[
+      {
+        port     => Stdlib::Port,
+        protocol => Enum[tcp, udp],
+      }
+    ]
   ]       $service_ports,
   String  $install_location,
   Boolean $firewall_manage,

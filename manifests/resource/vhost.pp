@@ -1,9 +1,8 @@
 define nginx::resource::vhost (
-  String  $source  = '',
-  String  $content = '',
-  Enum[ present, absent ]
-          $ensure  = present,
-  Boolean $enabled = true,
+  String  $source                 = '',
+  String  $content                = '',
+  Enum[ present, absent ] $ensure = present,
+  Boolean $enabled                = true,
 ) {
 
   if (empty($source)) and (empty($content)) {
@@ -19,13 +18,13 @@ define nginx::resource::vhost (
   }
 
   $file_content = $content ? {
-    '' => undef,
+    ''      => undef,
     default => $content,
   }
 
-  $install_location = $::nginx::install_location
-  $sites_available  = "${install_location}/sites-available"
-  $sites_enabled    = "${install_location}/sites-enabled"
+  $install_location = $nginx::install_location
+  $sites_available = "${install_location}/sites-available"
+  $sites_enabled = "${install_location}/sites-enabled"
 
   $ensure_certs_dir = $ensure ? {
     'present' => directory,
@@ -40,7 +39,7 @@ define nginx::resource::vhost (
     require => File["${nginx::install_location}/certs"],
   }
 
-  $ensure_sites_available  = $ensure ? {
+  $ensure_sites_available = $ensure ? {
     'present' => file,
     default   => $ensure,
   }

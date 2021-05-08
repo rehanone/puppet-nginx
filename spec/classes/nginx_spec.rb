@@ -19,6 +19,10 @@ describe 'nginx' do
           }
         end
 
+        it {
+          is_expected.to compile.with_all_deps
+        }
+
         case facts[:os][:family]
         when 'Debian'
           it {
