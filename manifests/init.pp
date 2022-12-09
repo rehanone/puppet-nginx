@@ -28,7 +28,6 @@ class nginx (
   Hash    $configs = lookup('nginx::configs', Hash, 'hash', {}),
   Hash    $vhosts  = lookup('nginx::vhosts', Hash, 'hash', {}),
 ) {
-
   anchor { "${module_name}::begin": }
   -> class { "${module_name}::repo": }
   -> class { "${module_name}::install": }

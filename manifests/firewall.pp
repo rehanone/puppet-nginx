@@ -1,5 +1,4 @@
 class nginx::firewall () inherits nginx {
-
   assert_private("Use of private class ${name} by ${caller_module_name}")
 
   if $nginx::firewall_manage {
