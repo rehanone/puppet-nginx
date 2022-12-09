@@ -1,10 +1,8 @@
 class nginx::repo () inherits nginx {
-
   assert_private("Use of private class ${name} by ${caller_module_name}")
   $architecture = $::facts[os][architecture]
 
   if $nginx::repo_manage {
-
     case $::facts[os][name] {
       'Debian', 'Ubuntu': {
         $key = {

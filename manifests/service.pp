@@ -1,6 +1,4 @@
-
 class nginx::service inherits nginx {
-
   assert_private("Use of private class ${name} by ${caller_module_name}")
 
   if $nginx::service_manage {

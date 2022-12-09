@@ -1,10 +1,9 @@
 define nginx::resource::vhost (
-  String  $source                 = '',
-  String  $content                = '',
-  Enum[ present, absent ] $ensure = present,
-  Boolean $enabled                = true,
+  String  $source               = '',
+  String  $content              = '',
+  Enum[present, absent] $ensure = present,
+  Boolean $enabled              = true,
 ) {
-
   if (empty($source)) and (empty($content)) {
     fail('Please provide source or content')
   }

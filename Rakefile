@@ -42,7 +42,8 @@ def changelog_future_release
 end
 
 PuppetLint.configuration.send('disable_relative')
-PuppetLint.configuration.fail_on_warnings = true
+PuppetLint.configuration.send('disable_documentation')
+
 
 if Bundler.rubygems.find_name('github_changelog_generator').any?
   GitHubChangelogGenerator::RakeTask.new :changelog do |config|

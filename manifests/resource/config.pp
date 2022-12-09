@@ -1,8 +1,7 @@
 define nginx::resource::config (
   String  $source,
-  Enum[ present, absent ] $ensure = present,
+  Enum[present, absent] $ensure = present,
 ) {
-
   $install_location = $nginx::install_location
 
   file { "${install_location}/conf.d/${name}.conf":
